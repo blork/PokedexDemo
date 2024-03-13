@@ -20,6 +20,9 @@
 		CBCB73F32BA1C00800F77407 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBCB73F52BA1C00800F77407 /* Pokedex.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pokedex.entitlements; sourceTree = "<group>"; };
 		CBCB73F72BA1C00800F77407 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CBCB73FE2BA1FFF600F77407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Base; path = "Pokédex/Base"; sourceTree = "<group>"; };
+		CBCB73FF2BA2001E00F77407 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Core; path = "Pokédex/Core"; sourceTree = "<group>"; };
+		CBCB74002BA2005500F77407 /* Feature */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Feature; path = "Pokédex/Feature"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +39,9 @@
 		CBCB73E32BA1C00600F77407 = {
 			isa = PBXGroup;
 			children = (
+				CBCB73FE2BA1FFF600F77407 /* Base */,
+				CBCB73FF2BA2001E00F77407 /* Core */,
+				CBCB74002BA2005500F77407 /* Feature */,
 				CBCB73EE2BA1C00600F77407 /* Pokédex */,
 				CBCB73ED2BA1C00600F77407 /* Products */,
 			);
