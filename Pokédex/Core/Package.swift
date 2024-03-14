@@ -6,17 +6,17 @@ let package = Package(
     platforms: [.iOS(.v17), .macOS(.v14)],
     products: [
         .library(
-            name: "Core",
-            targets: ["Core"]
+            name: "PokeAPI",
+            targets: ["PokeAPI"]
         ),
     ],
     targets: [
         .target(
-            name: "Core"
+            name: "PokeAPI"
         ),
         .testTarget(
-            name: "CoreTests",
-            dependencies: ["Core"]
+            name: "PokeAPITests",
+            dependencies: ["PokeAPI"]
         ),
     ]
 )

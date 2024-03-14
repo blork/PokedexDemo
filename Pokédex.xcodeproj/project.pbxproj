@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB9F779A2BA357BE00EA7491 /* PokeAPI in Frameworks */ = {isa = PBXBuildFile; productRef = CB9F77992BA357BE00EA7491 /* PokeAPI */; };
 		CBCB73F02BA1C00600F77407 /* PokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCB73EF2BA1C00600F77407 /* PokedexApp.swift */; };
 		CBCB73F22BA1C00600F77407 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCB73F12BA1C00600F77407 /* ContentView.swift */; };
 		CBCB73F42BA1C00800F77407 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBCB73F32BA1C00800F77407 /* Assets.xcassets */; };
@@ -30,12 +31,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9F779A2BA357BE00EA7491 /* PokeAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB9F77982BA357BE00EA7491 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CBCB73E32BA1C00600F77407 = {
 			isa = PBXGroup;
 			children = (
@@ -44,6 +53,7 @@
 				CBCB74002BA2005500F77407 /* Feature */,
 				CBCB73EE2BA1C00600F77407 /* Pokédex */,
 				CBCB73ED2BA1C00600F77407 /* Products */,
+				CB9F77982BA357BE00EA7491 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +101,9 @@
 			dependencies = (
 			);
 			name = "Pokédex";
+			packageProductDependencies = (
+				CB9F77992BA357BE00EA7491 /* PokeAPI */,
+			);
 			productName = "Pokédex";
 			productReference = CBCB73EC2BA1C00600F77407 /* Pokédex.app */;
 			productType = "com.apple.product-type.application";
@@ -361,6 +374,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CB9F77992BA357BE00EA7491 /* PokeAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PokeAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CBCB73E42BA1C00600F77407 /* Project object */;
 }
