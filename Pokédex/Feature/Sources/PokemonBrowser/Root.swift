@@ -13,6 +13,7 @@ public struct Root: View {
     public var body: some View {
         NavigationStack(path: $path) {
             PokemonListScreen(viewModel: .init(pokemonRepository: pokemonRepository))
+                .navigationTitle("Pokédex")
         }
     }
 }

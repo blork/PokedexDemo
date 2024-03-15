@@ -28,6 +28,23 @@ public struct Pokemon: Identifiable, Hashable {
 }
 
 extension Pokemon {
+    private static let spriteBase = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
+    
+    enum Sprite: String {
+        case back
+        case front = ""
+        case officialArtwork = "other/official-artwork"
+    }
+    
+    func spriteURL(for sprite: Sprite) -> URL {
+        var components = URLComponents(string: Pokemon.spriteBase)!
+        components.path += sprite.rawValue
+        components.path += "/\(id).png"
+        return components.url!
+    }
+}
+
+extension Pokemon {
     static func preview(id: Int = 1) -> Self {
         .init(id: id, name: "Pokemon \(id)", baseExperience: 1, height: 2, weight: 3)
     }

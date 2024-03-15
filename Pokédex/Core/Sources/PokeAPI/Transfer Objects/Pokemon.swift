@@ -27,23 +27,6 @@ public struct Pokemon: Decodable, Identifiable {
     }
 }
 
-public extension Pokemon {
-    private static let spriteBase = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
-    
-    enum Sprite: String {
-        case back
-        case front
-        case officialArtwork = "other/official-artwork"
-    }
-    
-    func spriteURL(for sprite: Sprite) -> URL {
-        var components = URLComponents(string: Pokemon.spriteBase)!
-        components.path += sprite.rawValue
-        components.path += "/\(id).png"
-        return components.url!
-    }
-}
-
 public struct Ability: Decodable {
     public let id: Int
     public let name: String

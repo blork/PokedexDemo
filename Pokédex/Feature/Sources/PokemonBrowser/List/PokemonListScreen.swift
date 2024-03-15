@@ -15,10 +15,7 @@ struct PokemonListScreen: View {
             Section {
                 ForEach(viewModel.pokemon.value ?? placeholders) { monster in
                     NavigationLink(value: monster) {
-                        HStack {
-                            Text(String(monster.id))
-                            Text(monster.name)
-                        }
+                        PokemonRow(pokemon: monster)
                     }
                 }
             }
