@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB9F779A2BA357BE00EA7491 /* PokeAPI in Frameworks */ = {isa = PBXBuildFile; productRef = CB9F77992BA357BE00EA7491 /* PokeAPI */; };
+		CB3E19A22BA46787002CA6BA /* PokemonBrowser in Frameworks */ = {isa = PBXBuildFile; productRef = CB3E19A12BA46787002CA6BA /* PokemonBrowser */; };
 		CBCB73F02BA1C00600F77407 /* PokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCB73EF2BA1C00600F77407 /* PokedexApp.swift */; };
-		CBCB73F22BA1C00600F77407 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCB73F12BA1C00600F77407 /* ContentView.swift */; };
 		CBCB73F42BA1C00800F77407 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBCB73F32BA1C00800F77407 /* Assets.xcassets */; };
 		CBCB73F82BA1C00800F77407 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBCB73F72BA1C00800F77407 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -17,7 +16,6 @@
 /* Begin PBXFileReference section */
 		CBCB73EC2BA1C00600F77407 /* Pokédex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokédex.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBCB73EF2BA1C00600F77407 /* PokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexApp.swift; sourceTree = "<group>"; };
-		CBCB73F12BA1C00600F77407 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CBCB73F32BA1C00800F77407 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBCB73F52BA1C00800F77407 /* Pokedex.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pokedex.entitlements; sourceTree = "<group>"; };
 		CBCB73F72BA1C00800F77407 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -31,7 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB9F779A2BA357BE00EA7491 /* PokeAPI in Frameworks */,
+				CB3E19A22BA46787002CA6BA /* PokemonBrowser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				CBCB73EF2BA1C00600F77407 /* PokedexApp.swift */,
-				CBCB73F12BA1C00600F77407 /* ContentView.swift */,
 				CBCB73F32BA1C00800F77407 /* Assets.xcassets */,
 				CBCB73F52BA1C00800F77407 /* Pokedex.entitlements */,
 				CBCB73F62BA1C00800F77407 /* Preview Content */,
@@ -102,7 +99,7 @@
 			);
 			name = "Pokédex";
 			packageProductDependencies = (
-				CB9F77992BA357BE00EA7491 /* PokeAPI */,
+				CB3E19A12BA46787002CA6BA /* PokemonBrowser */,
 			);
 			productName = "Pokédex";
 			productReference = CBCB73EC2BA1C00600F77407 /* Pokédex.app */;
@@ -158,7 +155,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBCB73F22BA1C00600F77407 /* ContentView.swift in Sources */,
 				CBCB73F02BA1C00600F77407 /* PokedexApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,9 +372,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CB9F77992BA357BE00EA7491 /* PokeAPI */ = {
+		CB3E19A12BA46787002CA6BA /* PokemonBrowser */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = PokeAPI;
+			productName = PokemonBrowser;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

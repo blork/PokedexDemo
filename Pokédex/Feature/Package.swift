@@ -6,17 +6,25 @@ let package = Package(
     platforms: [.iOS(.v17), .macOS(.v14)],
     products: [
         .library(
-            name: "Feature",
-            targets: ["Feature"]
+            name: "PokemonBrowser",
+            targets: ["PokemonBrowser"]
         ),
+    ],
+    dependencies: [
+        .package(path: "../Core"),
     ],
     targets: [
         .target(
-            name: "Feature"
+            name: "PokemonBrowser",
+            dependencies: [
+                .product(name: "PokeAPI", package: "Core"),
+            ]
         ),
         .testTarget(
-            name: "FeatureTests",
-            dependencies: ["Feature"]
+            name: "PokemonBrowserTests",
+            dependencies: [
+                "PokemonBrowser",
+            ]
         ),
     ]
 )

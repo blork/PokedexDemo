@@ -10,9 +10,15 @@ let package = Package(
             targets: ["PokeAPI"]
         ),
     ],
+    dependencies: [
+        .package(path: "../Base"),
+    ],
     targets: [
         .target(
-            name: "PokeAPI"
+            name: "PokeAPI",
+            dependencies: [
+                .product(name: "Base", package: "Base"),
+            ]
         ),
         .testTarget(
             name: "PokeAPITests",
