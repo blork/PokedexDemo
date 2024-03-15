@@ -18,5 +18,5 @@ public struct Root: View {
 }
 
 #Preview {
-    Root(pokemonRepository: StubPokemonRepository(pokemon: [.preview]))
+    Root(pokemonRepository: StubPokemonRepository(pokemon: [.preview()]))
 }

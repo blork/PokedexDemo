@@ -40,7 +40,7 @@ public class RemotePokemonRepository: PokemonRepository {
 public class StubPokemonRepository: PokemonRepository {
     var error: Error?
     var pokemon: [Pokemon]?
-        
+    
     public init(error: Error? = nil, pokemon: [Pokemon]? = nil) {
         #if DEBUG
             self.error = error

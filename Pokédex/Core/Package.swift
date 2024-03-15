@@ -9,6 +9,10 @@ let package = Package(
             name: "PokeAPI",
             targets: ["PokeAPI"]
         ),
+        .library(
+            name: "PokeDesign",
+            targets: ["PokeDesign"]
+        ),
     ],
     dependencies: [
         .package(path: "../Base"),
@@ -23,6 +27,12 @@ let package = Package(
         .testTarget(
             name: "PokeAPITests",
             dependencies: ["PokeAPI"]
+        ),
+        .target(
+            name: "PokeDesign",
+            dependencies: [
+                .product(name: "Base", package: "Base"),
+            ]
         ),
     ]
 )

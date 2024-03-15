@@ -18,6 +18,7 @@ let package = Package(
             name: "PokemonBrowser",
             dependencies: [
                 .product(name: "PokeAPI", package: "Core"),
+                .product(name: "PokeDesign", package: "Core"),
             ]
         ),
         .testTarget(

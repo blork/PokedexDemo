@@ -4,7 +4,7 @@ import PokeAPI
 
 @Observable public class PokemonListViewModel {
     
-    private enum PageState {
+    enum PageState {
         case firstLoad
         case subsequentLoad(PokemonRepository.Page)
         case end
@@ -19,8 +19,9 @@ import PokeAPI
         }
     }
     
-    private let pokemonRepository: PokemonRepository
-    private var nextPage: PageState = .firstLoad
+    let pokemonRepository: PokemonRepository
+    
+    var nextPage: PageState = .firstLoad
     
     var pokemon: ResourceState<[Pokemon]> = .loading
     
