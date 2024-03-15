@@ -24,11 +24,11 @@ enum ClientError: Error {
 
 extension PokeAPIClient: Client {
     public func get<T>(resource: Resource<T>) async throws -> T {
-        return try await perform(URLRequest(url: resource.url))
+        return try await get(resourceURL: resource.url)
     }
     
     public func get<T>(resourceURL: ResourceURL<T>) async throws -> T {
-        return try await perform(URLRequest(url: resourceURL.url))
+        return try await perform(URLRequest(url: resourceURL.rawValue))
     }
 }
 
