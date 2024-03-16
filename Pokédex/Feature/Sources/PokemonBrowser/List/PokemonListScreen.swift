@@ -11,9 +11,10 @@ struct PokemonListScreen: View {
     }
     
     var body: some View {
+        @Bindable var viewModel = viewModel
         List {
             Section {
-                ForEach(viewModel.pokemon.value ?? placeholders) { monster in
+                ForEach(viewModel.filteredPokemon ?? placeholders) { monster in
                     NavigationLink(value: monster) {
                         PokemonRow(pokemon: monster)
                     }
@@ -33,6 +34,7 @@ struct PokemonListScreen: View {
         }
         .listStyle(.plain)
         .loading(resource: viewModel.pokemon)
+        .searchable(text: $viewModel.search)
         .task {
             await viewModel.load()
         }

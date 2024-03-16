@@ -25,6 +25,16 @@ import PokeAPI
     
     var pokemon: ResourceState<[Pokemon]> = .loading
     
+    var filteredPokemon: [Pokemon]? {
+        if search.isEmpty {
+            pokemon.value
+        } else {
+            pokemon.value?.filter { $0.name.localizedCaseInsensitiveContains(search) }
+        }
+    }
+
+    var search = ""
+    
     public init(pokemonRepository: PokemonRepository) {
         self.pokemonRepository = pokemonRepository
     }
