@@ -14,6 +14,16 @@ public struct Root: View {
         NavigationStack(path: $path) {
             PokemonListScreen(viewModel: .init(pokemonRepository: pokemonRepository))
                 .navigationTitle("Pokédex")
+                .navigationDestination(for: Pokemon.self) { pokemon in
+                    PokemonDetailScreen(
+                        viewModel: .init(
+                            pokemon: pokemon,
+                            pokemonRepository: pokemonRepository
+                        )
+                    )
+                    .navigationTitle(pokemon.name.capitalized)
+                    .navigationBarTitleDisplayMode(.inline)
+                }
         }
     }
 }
