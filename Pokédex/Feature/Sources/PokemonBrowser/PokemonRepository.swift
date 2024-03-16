@@ -70,7 +70,7 @@ public class RemotePokemonRepository: PokemonRepository {
                     abilities.append(ability)
                 }
             }
-            return Pokemon.AdditionalInfo(abilities: abilities, moves: moves)
+            return Pokemon.AdditionalInfo(abilities, moves)
         }
     }
 }
@@ -80,10 +80,11 @@ public class StubPokemonRepository: PokemonRepository {
     var pokemon: [Pokemon]?
     var info: Pokemon.AdditionalInfo?
     
-    public init(error: Error? = nil, pokemon: [Pokemon]? = nil) {
+    public init(error: Error? = nil, pokemon: [Pokemon]? = nil, info: Pokemon.AdditionalInfo? = nil) {
         #if DEBUG
             self.error = error
             self.pokemon = pokemon
+            self.info = info
         #else
             fatalError("StubPokemonRepository should not be used in RELEASE mode!")
         #endif

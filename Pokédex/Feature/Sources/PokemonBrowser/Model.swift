@@ -35,7 +35,7 @@ public struct Pokemon: Identifiable, Hashable {
             self.moves = moves
         }
         
-        init(abilities: [PokeAPI.Ability], moves: [PokeAPI.Move]) {
+        init(_ abilities: [PokeAPI.Ability], _ moves: [PokeAPI.Move]) {
             self.abilities = abilities.map { ability in
                 .init(
                     name: ability.names.first { name in
