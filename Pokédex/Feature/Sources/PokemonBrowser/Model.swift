@@ -88,19 +88,19 @@ extension Pokemon {
     }
 }
 
-extension Pokemon {
+public extension Pokemon {
     static func preview(id: Int = 1) -> Self {
         .init(id: id, name: "Pokemon \(id)", baseExperience: 1, height: 2, weight: 3)
     }
 }
 
-extension [Pokemon] {
+public extension [Pokemon] {
     static var preview: Self {
         (0 ..< 20).map { .preview(id: $0) }
     }
 }
 
-extension Pokemon.AdditionalInfo {
+public extension Pokemon.AdditionalInfo {
     static var preview: Self {
         .init(
             abilities: [

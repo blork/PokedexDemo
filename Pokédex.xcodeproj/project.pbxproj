@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		CB3E19A22BA46787002CA6BA /* PokemonBrowser in Frameworks */ = {isa = PBXBuildFile; productRef = CB3E19A12BA46787002CA6BA /* PokemonBrowser */; };
+		CB3F45A92BA5FBA200D7AF40 /* FeaturePokemonBrowserMiniApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F45A82BA5FBA200D7AF40 /* FeaturePokemonBrowserMiniApp.swift */; };
+		CB3F45AD2BA5FBA300D7AF40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3F45AC2BA5FBA300D7AF40 /* Assets.xcassets */; };
+		CB3F45B12BA5FBA300D7AF40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3F45B02BA5FBA300D7AF40 /* Preview Assets.xcassets */; };
+		CB3F45B62BA5FBCC00D7AF40 /* PokemonBrowser in Frameworks */ = {isa = PBXBuildFile; productRef = CB3F45B52BA5FBCC00D7AF40 /* PokemonBrowser */; };
 		CBCB73F02BA1C00600F77407 /* PokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCB73EF2BA1C00600F77407 /* PokedexApp.swift */; };
 		CBCB73F42BA1C00800F77407 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBCB73F32BA1C00800F77407 /* Assets.xcassets */; };
 		CBCB73F82BA1C00800F77407 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBCB73F72BA1C00800F77407 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB3F45A62BA5FBA200D7AF40 /* FeaturePokemonBrowserMiniApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeaturePokemonBrowserMiniApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB3F45A82BA5FBA200D7AF40 /* FeaturePokemonBrowserMiniApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturePokemonBrowserMiniApp.swift; sourceTree = "<group>"; };
+		CB3F45AC2BA5FBA300D7AF40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB3F45AE2BA5FBA300D7AF40 /* FeaturePokemonBrowserMiniApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FeaturePokemonBrowserMiniApp.entitlements; sourceTree = "<group>"; };
+		CB3F45B02BA5FBA300D7AF40 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CBCB73EC2BA1C00600F77407 /* Pokédex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokédex.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBCB73EF2BA1C00600F77407 /* PokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexApp.swift; sourceTree = "<group>"; };
 		CBCB73F32BA1C00800F77407 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -25,6 +34,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CB3F45A32BA5FBA200D7AF40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB3F45B62BA5FBCC00D7AF40 /* PokemonBrowser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CBCB73E92BA1C00600F77407 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -36,6 +53,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB3F45A72BA5FBA200D7AF40 /* FeaturePokemonBrowserMiniApp */ = {
+			isa = PBXGroup;
+			children = (
+				CB3F45A82BA5FBA200D7AF40 /* FeaturePokemonBrowserMiniApp.swift */,
+				CB3F45AC2BA5FBA300D7AF40 /* Assets.xcassets */,
+				CB3F45AE2BA5FBA300D7AF40 /* FeaturePokemonBrowserMiniApp.entitlements */,
+				CB3F45AF2BA5FBA300D7AF40 /* Preview Content */,
+			);
+			path = FeaturePokemonBrowserMiniApp;
+			sourceTree = "<group>";
+		};
+		CB3F45AF2BA5FBA300D7AF40 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CB3F45B02BA5FBA300D7AF40 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		CB9F77982BA357BE00EA7491 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -50,6 +86,7 @@
 				CBCB73FF2BA2001E00F77407 /* Core */,
 				CBCB74002BA2005500F77407 /* Feature */,
 				CBCB73EE2BA1C00600F77407 /* Pokédex */,
+				CB3F45A72BA5FBA200D7AF40 /* FeaturePokemonBrowserMiniApp */,
 				CBCB73ED2BA1C00600F77407 /* Products */,
 				CB9F77982BA357BE00EA7491 /* Frameworks */,
 			);
@@ -59,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				CBCB73EC2BA1C00600F77407 /* Pokédex.app */,
+				CB3F45A62BA5FBA200D7AF40 /* FeaturePokemonBrowserMiniApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,6 +123,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CB3F45A52BA5FBA200D7AF40 /* FeaturePokemonBrowserMiniApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB3F45B42BA5FBA300D7AF40 /* Build configuration list for PBXNativeTarget "FeaturePokemonBrowserMiniApp" */;
+			buildPhases = (
+				CB3F45A22BA5FBA200D7AF40 /* Sources */,
+				CB3F45A32BA5FBA200D7AF40 /* Frameworks */,
+				CB3F45A42BA5FBA200D7AF40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FeaturePokemonBrowserMiniApp;
+			packageProductDependencies = (
+				CB3F45B52BA5FBCC00D7AF40 /* PokemonBrowser */,
+			);
+			productName = FeaturePokemonBrowserMiniApp;
+			productReference = CB3F45A62BA5FBA200D7AF40 /* FeaturePokemonBrowserMiniApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 		CBCB73EB2BA1C00600F77407 /* Pokédex */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBCB73FB2BA1C00800F77407 /* Build configuration list for PBXNativeTarget "Pokédex" */;
@@ -115,6 +173,9 @@
 				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
+					CB3F45A52BA5FBA200D7AF40 = {
+						CreatedOnToolsVersion = 15.1;
+					};
 					CBCB73EB2BA1C00600F77407 = {
 						CreatedOnToolsVersion = 15.1;
 					};
@@ -134,11 +195,21 @@
 			projectRoot = "";
 			targets = (
 				CBCB73EB2BA1C00600F77407 /* Pokédex */,
+				CB3F45A52BA5FBA200D7AF40 /* FeaturePokemonBrowserMiniApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CB3F45A42BA5FBA200D7AF40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB3F45B12BA5FBA300D7AF40 /* Preview Assets.xcassets in Resources */,
+				CB3F45AD2BA5FBA300D7AF40 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CBCB73EA2BA1C00600F77407 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -151,6 +222,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CB3F45A22BA5FBA200D7AF40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB3F45A92BA5FBA200D7AF40 /* FeaturePokemonBrowserMiniApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CBCB73E82BA1C00600F77407 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -162,6 +241,78 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		CB3F45B22BA5FBA300D7AF40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FeaturePokemonBrowserMiniApp/FeaturePokemonBrowserMiniApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FeaturePokemonBrowserMiniApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blork.FeaturePokemonBrowserMiniApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CB3F45B32BA5FBA300D7AF40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FeaturePokemonBrowserMiniApp/FeaturePokemonBrowserMiniApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FeaturePokemonBrowserMiniApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blork.FeaturePokemonBrowserMiniApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		CBCB73F92BA1C00800F77407 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -351,6 +502,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CB3F45B42BA5FBA300D7AF40 /* Build configuration list for PBXNativeTarget "FeaturePokemonBrowserMiniApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB3F45B22BA5FBA300D7AF40 /* Debug */,
+				CB3F45B32BA5FBA300D7AF40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CBCB73E72BA1C00600F77407 /* Build configuration list for PBXProject "Pokédex" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -373,6 +533,10 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		CB3E19A12BA46787002CA6BA /* PokemonBrowser */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PokemonBrowser;
+		};
+		CB3F45B52BA5FBCC00D7AF40 /* PokemonBrowser */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PokemonBrowser;
 		};
