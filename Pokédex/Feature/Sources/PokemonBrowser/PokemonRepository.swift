@@ -5,6 +5,8 @@ public protocol PokemonRepository {
     typealias Page = ResourceURL<ResourceList<PokeAPI.Pokemon>>
 
     func pokemon(page: Page?) async throws -> (pokemon: [Pokemon], nextPage: Page?)
+    
+    func additionalInfo(for id: Pokemon.ID) async throws -> Pokemon.AdditionalInfo
 }
 
 public class RemotePokemonRepository: PokemonRepository {
@@ -35,11 +37,48 @@ public class RemotePokemonRepository: PokemonRepository {
         
         return (pokemon, response.next)
     }
+    
+    private enum TaskResult {
+        case move(Move)
+        case ability(Ability)
+    }
+    
+    public func additionalInfo(for id: Pokemon.ID) async throws -> Pokemon.AdditionalInfo {
+        let response = try await client.get(resourceURL: Endpoint.pokemon(id: id))
+
+        return try await withThrowingTaskGroup(of: TaskResult.self, returning: Pokemon.AdditionalInfo.self) { taskGroup in
+            for move in response.moves {
+                taskGroup.addTask {
+                    try .move(await self.client.get(resource: move.move))
+                }
+            }
+            
+            for ability in response.abilities {
+                taskGroup.addTask {
+                    try .ability(await self.client.get(resource: ability.ability))
+                }
+            }
+            
+            var abilities: [Ability] = []
+            var moves: [Move] = []
+
+            for try await result in taskGroup {
+                switch result {
+                case let .move(move):
+                    moves.append(move)
+                case let .ability(ability):
+                    abilities.append(ability)
+                }
+            }
+            return Pokemon.AdditionalInfo(abilities: abilities, moves: moves)
+        }
+    }
 }
 
 public class StubPokemonRepository: PokemonRepository {
     var error: Error?
     var pokemon: [Pokemon]?
+    var info: Pokemon.AdditionalInfo?
     
     public init(error: Error? = nil, pokemon: [Pokemon]? = nil) {
         #if DEBUG
@@ -53,6 +92,12 @@ public class StubPokemonRepository: PokemonRepository {
     public func pokemon(page _: Page?) async throws -> (pokemon: [Pokemon], nextPage: Page?) {
         if let error { throw error }
         if let pokemon { return (pokemon, nil) }
+        throw StubPokemonRepository.notSetUp
+    }
+    
+    public func additionalInfo(for _: Pokemon.ID) async throws -> Pokemon.AdditionalInfo {
+        if let error { throw error }
+        if let info { return info }
         throw StubPokemonRepository.notSetUp
     }
 

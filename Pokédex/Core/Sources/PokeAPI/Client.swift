@@ -3,6 +3,10 @@ import OSLog
 
 public enum Endpoint {
     public static var pokemon = ResourceURL<ResourceList<Pokemon>>(url: URL(string: "https://pokeapi.co/api/v2/pokemon/")!)
+    
+    public static func pokemon(id: Pokemon.ID) -> ResourceURL<Pokemon> {
+        return ResourceURL<Pokemon>(url: URL(string: "https://pokeapi.co/api/v2/pokemon/\(id)")!)
+    }
 }
 
 public protocol Client {

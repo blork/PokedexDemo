@@ -10,31 +10,36 @@ public struct Pokemon: Decodable, Identifiable {
     public let moves: [PokeMove]
     
     public struct PokeAbility: Decodable {
-        let isHidden: Bool
-        let slot: Int
-        let ability: Resource<Ability>
+        public let isHidden: Bool
+        public let slot: Int
+        public let ability: Resource<Ability>
     }
     
     public struct PokeMove: Decodable {
-        let move: Resource<Move>
-        let versionGroupDetails: [PokeMoveVersion]
+        public let move: Resource<Move>
+        public let versionGroupDetails: [PokeMoveVersion]
     }
 
     public struct PokeMoveVersion: Decodable {
-        let levelLearnedAt: Int
-        let versionGroup: Resource<VersionGroup>
-        let moveLearnMethod: Resource<MoveLearnMethod>
+        public let levelLearnedAt: Int
+        public let versionGroup: Resource<VersionGroup>
+        public let moveLearnMethod: Resource<MoveLearnMethod>
     }
 }
 
 public struct Ability: Decodable {
     public let id: Int
     public let name: String
+    public let names: [Name]
+    public let effectEntries: [Effect]
 }
 
 public struct Move: Decodable {
     public let id: Int
     public let name: String
+    public let accuracy: Int?
+    public let pp: Int
+    public let names: [Name]
 }
 
 public struct VersionGroup: Decodable {
@@ -45,6 +50,21 @@ public struct VersionGroup: Decodable {
 public struct MoveLearnMethod: Decodable {
     public let id: Int
     public let name: String
+}
+
+public struct Name: Decodable {
+    public let name: String
+    public let language: Resource<Language>
+}
+
+public struct Language: Decodable {
+    public let iso639: String
+}
+
+public struct Effect: Decodable {
+    public let effect: String
+    public let shortEffect: String
+    public let language: Resource<Language>
 }
 
 public extension Pokemon {
