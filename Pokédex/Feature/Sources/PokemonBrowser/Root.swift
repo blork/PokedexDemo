@@ -11,7 +11,7 @@ public struct Root: View {
     }
 
     public var body: some View {
-        NavigationStack(path: $path) {
+        NavigationSplitView {
             PokemonListScreen(viewModel: .init(pokemonRepository: pokemonRepository))
                 .navigationTitle("Pokédex")
                 .navigationDestination(for: Pokemon.self) { pokemon in
@@ -23,9 +23,23 @@ public struct Root: View {
                     )
                     .navigationTitle(pokemon.name.capitalized)
                     #if os(iOS)
-                    .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarTitleDisplayMode(.inline)
+                    #endif
+                    #if os(macOS)
+                    .navigationSplitViewColumnWidth(600)
                     #endif
                 }
+                #if os(macOS)
+                .navigationSplitViewColumnWidth(300)
+                #endif
+        } detail: {
+            ContentUnavailableView("Choose a Pokémon", systemImage: "questionmark.app.dashed")
+            #if os(iOS)
+                .navigationBarTitleDisplayMode(.inline)
+            #endif
+            #if os(macOS)
+            .navigationSplitViewColumnWidth(600)
+            #endif
         }
     }
 }

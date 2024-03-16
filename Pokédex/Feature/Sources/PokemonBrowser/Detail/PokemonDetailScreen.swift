@@ -8,22 +8,24 @@ struct PokemonDetailScreen: View {
     var body: some View {
         List {
             Section {
-                AsyncImage(
-                    url: viewModel.pokemon.spriteURL(for: .officialArtwork)
-                ) { phase in
-                    switch phase {
-                    case let .success(image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .clipShape(.rect(cornerRadius: .cornerRadius(.regular)))
-                    default:
-                        ProgressView()
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                ZStack(alignment: .center) {
+                    AsyncImage(
+                        url: viewModel.pokemon.spriteURL(for: .officialArtwork)
+                    ) { phase in
+                        switch phase {
+                        case let .success(image):
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        default:
+                            ProgressView()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        }
                     }
+                    .aspectRatio(1, contentMode: .fill)
+                    .frame(maxWidth: 400, alignment: .center)
                 }
-                .frame(maxWidth: .infinity)
-                .aspectRatio(1, contentMode: .fill)
+                .frame(maxWidth: .infinity, alignment: .center)
 
                 HStack(alignment: .center) {
                     SpriteView(url: viewModel.pokemon.spriteURL(for: .front))
