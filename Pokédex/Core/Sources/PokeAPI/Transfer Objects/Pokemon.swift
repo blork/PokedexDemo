@@ -9,6 +9,16 @@ public struct Pokemon: Decodable, Identifiable {
     public let abilities: [PokeAbility]
     public let moves: [PokeMove]
     
+    public init(id: Int, name: String, baseExperience: Int, height: Int, weight: Int, abilities: [PokeAbility], moves: [PokeMove]) {
+        self.id = id
+        self.name = name
+        self.baseExperience = baseExperience
+        self.height = height
+        self.weight = weight
+        self.abilities = abilities
+        self.moves = moves
+    }
+    
     public struct PokeAbility: Decodable {
         public let isHidden: Bool
         public let slot: Int

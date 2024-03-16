@@ -102,3 +102,34 @@ public class PokeAPIClient {
         }
     }
 }
+
+public class StubClient: Client {
+    
+    var responses: [(any Decodable)]?
+    var error: Error?
+    
+    public init(responses: [(any Decodable)]? = nil, error: Error? = nil) {
+        #if DEBUG
+        self.responses = responses
+        self.error = error
+        #else
+        fatalError("StubClient should not be used in RELEASE mode!")
+        #endif
+    }
+    
+    public func get<T>(resource _: Resource<T>) async throws -> T where T: Decodable {
+        if let error { throw error }
+        if responses != nil { return responses!.removeFirst() as! T }
+        throw StubClientError.notSetUp
+    }
+    
+    public func get<T>(resourceURL _: ResourceURL<T>) async throws -> T where T: Decodable {
+        if let error { throw error }
+        if responses != nil { return responses!.removeFirst() as! T }
+        throw StubClientError.notSetUp
+    }
+
+    public enum StubClientError: Error {
+        case notSetUp
+    }
+}
