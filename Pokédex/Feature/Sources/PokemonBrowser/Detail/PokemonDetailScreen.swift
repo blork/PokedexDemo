@@ -80,10 +80,12 @@ struct PokemonDetailScreen: View {
                 ContentUnavailableView(error.localizedDescription, systemImage: "exclamationmark.triangle")
             }
         }
-        .listStyle(.insetGrouped)
         .task {
             await viewModel.load()
         }
+        #if os(iOS)
+        .listStyle(.insetGrouped)
+        #endif
     }
 }
 

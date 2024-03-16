@@ -22,7 +22,9 @@ public struct Root: View {
                         )
                     )
                     .navigationTitle(pokemon.name.capitalized)
+                    #if os(iOS)
                     .navigationBarTitleDisplayMode(.inline)
+                    #endif
                 }
         }
     }
