@@ -14,8 +14,8 @@ struct PokemonRow: View {
             
             Spacer()
             
-            Text("#\(pokemon.id)")
-                .font(.caption.bold())
+            Text(String(format: "#%04d", pokemon.id))
+                .font(.caption.bold().monospacedDigit())
                 .pill(foregroundColor: .white, backgroundColor: .accentColor)
         }
     }
