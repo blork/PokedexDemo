@@ -13,28 +13,32 @@ struct PokemonListScreen: View {
     var body: some View {
         @Bindable var viewModel = viewModel
         List {
-            Section {
-                ForEach(viewModel.filteredPokemon ?? placeholders) { monster in
-                    NavigationLink(value: monster) {
-                        PokemonRow(pokemon: monster)
+            if viewModel.isSearching && viewModel.filteredPokemon?.isEmpty == true, case .end = viewModel.nextPage {
+                    ContentUnavailableView.search
+            } else {
+                Section {
+                    ForEach(viewModel.filteredPokemon ?? placeholders) { monster in
+                        NavigationLink(value: monster) {
+                            PokemonRow(pokemon: monster)
+                        }
                     }
                 }
+                
+                Section {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .task {
+                            await viewModel.load()
+                        }
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .listRowSeparator(.hidden)
+                }
+                .listSectionSeparator(.hidden)
             }
-            
-            Section {
-                ProgressView()
-                    .progressViewStyle(.circular)
-                    .task {
-                        await viewModel.load()
-                    }
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .listRowSeparator(.hidden)
-            }
-            .listSectionSeparator(.hidden)
         }
         .listStyle(.plain)
         .loading(resource: viewModel.pokemon)
-        .searchable(text: $viewModel.search)
+        .searchable(text: $viewModel.search, isPresented: $viewModel.isSearching)
         .task {
             await viewModel.load()
         }

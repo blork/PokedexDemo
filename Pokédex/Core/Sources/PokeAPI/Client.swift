@@ -20,10 +20,11 @@ public enum HTTPMethod: String {
     case POST
 }
 
-enum ClientError: Error {
+public enum ClientError: Error {
     case invalidURL
     case unexpected(response: HTTPURLResponse)
     case unknown(underlying: Error)
+    case cancellation
 }
 
 extension PokeAPIClient: Client {
@@ -80,7 +81,14 @@ public class PokeAPIClient {
             data = response.0
             urlResponse = response.1
         } catch {
-            throw ClientError.unknown(underlying: error)
+            let error = error as NSError
+            if error.domain == NSURLErrorDomain, error.code == NSURLErrorCancelled {
+                Logger.default.error("Request cancelled")
+                throw ClientError.cancellation
+            } else {
+                Logger.default.error("Unexpected error: \(String(describing: error))")
+                throw ClientError.unknown(underlying: error)
+            }
         }
         
         let httpResponse = (urlResponse as! HTTPURLResponse)
@@ -105,15 +113,15 @@ public class PokeAPIClient {
 
 public class StubClient: Client {
     
-    var responses: [(any Decodable)]?
+    var responses: [any Decodable]?
     var error: Error?
     
-    public init(responses: [(any Decodable)]? = nil, error: Error? = nil) {
+    public init(responses: [any Decodable]? = nil, error: Error? = nil) {
         #if DEBUG
-        self.responses = responses
-        self.error = error
+            self.responses = responses
+            self.error = error
         #else
-        fatalError("StubClient should not be used in RELEASE mode!")
+            fatalError("StubClient should not be used in RELEASE mode!")
         #endif
     }
     

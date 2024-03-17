@@ -34,6 +34,7 @@ import PokeAPI
     }
 
     var search = ""
+    var isSearching = false
     
     public init(pokemonRepository: PokemonRepository) {
         self.pokemonRepository = pokemonRepository
@@ -49,7 +50,14 @@ import PokeAPI
             } else {
                 self.nextPage = .end
             }
+            
+            if isSearching {
+                await load()
+            }
+        } catch ClientError.cancellation {
+            // Do nothing
         } catch {
+            print(error)
             pokemon = .error(error)
         }
     }
