@@ -29,13 +29,15 @@ public struct Pokemon: Identifiable, Hashable {
     public struct AdditionalInfo: Hashable {
         let abilities: [Ability]
         let moves: [Move]
+        let description: String?
         
-        init(abilities: [Ability], moves: [Move]) {
+        init(abilities: [Ability], moves: [Move], description: String) {
             self.abilities = abilities
             self.moves = moves
+            self.description = description
         }
         
-        init(_ abilities: [PokeAPI.Ability], _ moves: [PokeAPI.Move]) {
+        init(_ abilities: [PokeAPI.Ability], _ moves: [PokeAPI.Move], _ species: PokeAPI.Species?) {
             self.abilities = abilities.map { ability in
                 .init(
                     name: ability.names.first { name in
@@ -55,6 +57,10 @@ public struct Pokemon: Identifiable, Hashable {
                     pp: move.pp
                 )
             }
+            
+            self.description = species?.flavorTextEntries.first { text in
+                text.language.name == Locale.current.language.languageCode?.identifier
+            }?.flavorText.replacingOccurrences(of: "\n", with: " ")
         }
 
         public struct Ability: Hashable {
@@ -108,7 +114,8 @@ public extension Pokemon.AdditionalInfo {
             ],
             moves: [
                 .init(name: "Move", accuracy: 100, pp: 15)
-            ]
+            ],
+            description: "A Pokémon!"
         )
     }
 }

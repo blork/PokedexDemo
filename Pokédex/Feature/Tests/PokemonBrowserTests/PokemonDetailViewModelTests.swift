@@ -23,7 +23,7 @@ final class PokemonDetailViewModelTests: XCTestCase {
     }
     
     func test_noInfoReturned_load_infoIsLoadedAndEmpty() async throws {
-        let repo = StubPokemonRepository(info: .init(abilities: [], moves: []))
+        let repo = StubPokemonRepository(info: .init(abilities: [], moves: [], description: ""))
         let pokemon = Pokemon.preview()
         let vm = PokemonDetailViewModel(pokemon: pokemon, pokemonRepository: repo)
 
@@ -39,7 +39,7 @@ final class PokemonDetailViewModelTests: XCTestCase {
             .init(name: "Example Ability", description: "Test"),
         ], moves: [
             .init(name: "Example Move", accuracy: 1, pp: 2),
-        ]))
+        ], description: "Example Description"))
         
         let pokemon = Pokemon.preview()
         let vm = PokemonDetailViewModel(pokemon: pokemon, pokemonRepository: repo)
@@ -59,5 +59,7 @@ final class PokemonDetailViewModelTests: XCTestCase {
         XCTAssertEqual(move.name, "Example Move")
         XCTAssertEqual(move.accuracy, 1)
         XCTAssertEqual(move.pp, 2)
+        
+        XCTAssertEqual(info.description, "Example Description")
     }
 }

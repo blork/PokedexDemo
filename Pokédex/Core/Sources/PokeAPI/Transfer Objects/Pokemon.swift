@@ -8,8 +8,9 @@ public struct Pokemon: Decodable, Identifiable {
     public let weight: Int
     public let abilities: [PokeAbility]
     public let moves: [PokeMove]
+    public let species: Resource<Species>
     
-    public init(id: Int, name: String, baseExperience: Int, height: Int, weight: Int, abilities: [PokeAbility], moves: [PokeMove]) {
+    public init(id: Int, name: String, baseExperience: Int, height: Int, weight: Int, abilities: [PokeAbility], moves: [PokeMove], species: Resource<Species>) {
         self.id = id
         self.name = name
         self.baseExperience = baseExperience
@@ -17,6 +18,7 @@ public struct Pokemon: Decodable, Identifiable {
         self.weight = weight
         self.abilities = abilities
         self.moves = moves
+        self.species = species
     }
     
     public struct PokeAbility: Decodable {
@@ -35,6 +37,15 @@ public struct Pokemon: Decodable, Identifiable {
         public let versionGroup: Resource<VersionGroup>
         public let moveLearnMethod: Resource<MoveLearnMethod>
     }
+}
+
+public struct Species: Decodable {
+    public let flavorTextEntries: [FlavorText]
+}
+
+public struct FlavorText: Decodable {
+    public let flavorText: String
+    public let language: Resource<Language>
 }
 
 public struct Ability: Decodable {
@@ -127,7 +138,15 @@ public extension Pokemon {
                         ),
                     ]
                 ),
-            ]
+            ],
+            species: .init(
+                name: "bulbasaur",
+                url: .init(
+                    url: URL(
+                        string: "https://pokeapi.co/api/v2/pokemon-species/2/"
+                    )!
+                )
+            )
         )
     }
 }

@@ -41,6 +41,7 @@ public class RemotePokemonRepository: PokemonRepository {
     private enum TaskResult {
         case move(Move)
         case ability(Ability)
+        case species(Species)
     }
     
     public func additionalInfo(for id: Pokemon.ID) async throws -> Pokemon.AdditionalInfo {
@@ -59,18 +60,25 @@ public class RemotePokemonRepository: PokemonRepository {
                 }
             }
             
+            taskGroup.addTask {
+                try .species(await self.client.get(resource: response.species))
+            }
+            
             var abilities: [Ability] = []
             var moves: [Move] = []
-
+            var species: Species?
+            
             for try await result in taskGroup {
                 switch result {
                 case let .move(move):
                     moves.append(move)
                 case let .ability(ability):
                     abilities.append(ability)
+                case let .species(_species):
+                    species = _species
                 }
             }
-            return Pokemon.AdditionalInfo(abilities, moves)
+            return Pokemon.AdditionalInfo(abilities, moves, species)
         }
     }
 }

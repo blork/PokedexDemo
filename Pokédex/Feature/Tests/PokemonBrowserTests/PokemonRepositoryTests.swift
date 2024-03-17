@@ -56,7 +56,11 @@ final class PokemonRepositoryTests: XCTestCase {
                     height: 3,
                     weight: 4,
                     abilities: [],
-                    moves: []
+                    moves: [],
+                    species: .init(
+                        name: "Pokemon 2",
+                        url: .init(url: URL(string: "http://example.com")!)
+                    )
                 ),
             ]
         )

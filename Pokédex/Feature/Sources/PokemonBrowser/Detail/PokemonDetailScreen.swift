@@ -48,6 +48,16 @@ struct PokemonDetailScreen: View {
     
             switch viewModel.additionalInfo {
             case let .loaded(additionalInfo):
+                
+                if let description = additionalInfo.description {
+                    Section("About") {
+                        Text(description)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.body.monospaced())
+                            .textSelection(.enabled)
+                    }
+                }
+                
                 Section {
                     DisclosureGroup("Abilities") {
                         ForEach(additionalInfo.abilities, id: \.self) { move in
